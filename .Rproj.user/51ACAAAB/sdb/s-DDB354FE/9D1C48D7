@@ -1,0 +1,18 @@
+{
+    "contents" : "library(ISLR)\ndata(Wage)\nWage <- subset(Wage, select = -c(logwage))\nsummary(Wage)\ninTrain <- createDataPartition(y=Wage$wage,p=0.7, list=FALSE)\ntraining <- Wage[inTrain, ]\ntesting <- Wage[-inTrain,]\ndim(training)\ndim(testing)\nfeaturePlot(x=training[,c(\"age\",\"education\",\"jobclass\")], y=training$wage, plot=\"pairs\")\nqplot(age, wage, data=training)\nqplot(age, wage, colour=jobclass, data=training)\nqplot(age, wage, colour=education, data=training)\nmodFit1 <- train(wage~age + jobclass + education, method=\"lm\", data=training)\nfinMod<-modFit1$finalModel\nprint(modFit1)\nplot(finMod,1,pch=19,cex=0.5,col=\"#00000010\")\nqplot(age, wage, colour=race, data=training)\nplot(finMod$residuals,pch=19)\n# Predicted versus truth in test set\npred <- predict(modFit1, testing)\nqplot(wage, pred, colour=year, data=testing)\n",
+    "created" : 1448106241228.000,
+    "dirty" : true,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "1257723644",
+    "id" : "9D1C48D7",
+    "lastKnownWriteTime" : 1448109665,
+    "path" : "~/Documents/github/practical_machine_learning/predicting_regression_multiple_covariates.R",
+    "project_path" : "predicting_regression_multiple_covariates.R",
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 2,
+    "source_on_save" : false,
+    "type" : "r_source"
+}

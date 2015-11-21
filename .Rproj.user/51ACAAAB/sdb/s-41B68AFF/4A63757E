@@ -1,0 +1,18 @@
+{
+    "contents" : "",
+    "created" : 1448133005818.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "4A63757E",
+    "lastKnownWriteTime" : 1448133021,
+    "path" : "~/Documents/github/practical_machine_learning/random_forests.R",
+    "project_path" : "random_forests.R",
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "type" : "r_source"
+}

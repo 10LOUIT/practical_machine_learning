@@ -1,0 +1,18 @@
+{
+    "contents" : "data(iris)\nlibrary(caret)\nlibrary(ggplot2)\ninTrain <- createDataPartition(y=iris$Species,p=0.7,list=FALSE)\ntraining <- iris[inTrain,]\ntesting <- iris[-inTrain,]\nmodFit <- train(Species~ .,data=training, method=\"rf\",prox=TRUE)\nmodFit\ngetTree(modFit$finalModel,k=2)\nirisP <- classCenter(training[,c(3,4)], training$Species, modFit$finalModel$prox)\nirisP <- as.data.frame(irisP)\nirisP$Species <- rownames(irisP)\np <- qplot(Petal.Width, Petal.Length, col=Species, data=training)\np + geom_point(aes(x=Petal.Width,y=Petal.Length,col=Species),size=5,shape=4,data=irisP)\npred <- predict(modFit, testing)\ntesting$predRight <- pred==testing$Species\ntable(pred,testing$Species)\nqplot(Petal.Width,Petal.Length,colour=predRight,data=testing,main=\"newData Prediction\")\n",
+    "created" : 1448133005818.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "3187706758",
+    "id" : "4A63757E",
+    "lastKnownWriteTime" : 1448183769,
+    "path" : "~/Documents/github/practical_machine_learning/random_forests.R",
+    "project_path" : "random_forests.R",
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "type" : "r_source"
+}
